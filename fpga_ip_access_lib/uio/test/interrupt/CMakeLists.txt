@@ -1,0 +1,7 @@
+file(GLOB c_FILES *.c)
+
+add_executable(fpga_ip_access_api_uio_int_tst ${c_FILES})
+
+target_link_libraries(fpga_ip_access_api_uio_int_tst LINK_PUBLIC fpga_ip_access_lib fpga_ip_access_lib_common dl pthread)
+target_include_directories(fpga_ip_access_api_uio_int_tst PUBLIC "$<TARGET_PROPERTY:fpga_ip_access_lib,INTERFACE_INCLUDE_DIRECTORIES>")
+target_include_directories(fpga_ip_access_api_uio_int_tst PUBLIC "$<TARGET_PROPERTY:fpga_ip_access_lib_common,INTERFACE_INCLUDE_DIRECTORIES>")

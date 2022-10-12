@@ -1,0 +1,11 @@
+file(GLOB cpp_FILES *.cpp)
+
+add_executable(fpga_ip_access_api_devmem_utst ${cpp_FILES})
+
+target_link_libraries(fpga_ip_access_api_devmem_utst LINK_PUBLIC fpga_ip_access_lib_sw_tst fpga_ip_access_lib_common gtest dl pthread)
+target_include_directories(fpga_ip_access_api_devmem_utst PUBLIC "$<TARGET_PROPERTY:fpga_ip_access_lib,INTERFACE_INCLUDE_DIRECTORIES>")
+
+add_executable(fpga_ip_access_api_devmem_hw_utst intel_fpga_api_devmem_test.cpp intel_fpga_platform_devmem_utst.cpp)
+
+target_link_libraries(fpga_ip_access_api_devmem_hw_utst LINK_PUBLIC fpga_ip_access_lib fpga_ip_access_lib_common gtest dl pthread)
+target_include_directories(fpga_ip_access_api_devmem_hw_utst PUBLIC "$<TARGET_PROPERTY:fpga_ip_access_lib,INTERFACE_INCLUDE_DIRECTORIES>")

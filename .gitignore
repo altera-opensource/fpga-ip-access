@@ -1,0 +1,4 @@
+build
+.vscode
+protodriver_doc
+protodrv_api/sld/src/.intel_reserved_debug_server.port

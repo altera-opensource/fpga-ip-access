@@ -1,0 +1,35 @@
+/ {
+        soc {
+
+                ipdfl: ipdfl@100000 {
+                    compatible = "syscon", "fpga-ip-access-dfl";
+                    reg = <0x100000 0x1000000>;
+                    reg-io-width = <4>;
+                    status = "okay";
+                };
+
+                myip1: myip1@a0000 {
+                    compatible = "syscon", "fpga-ip-access";
+                    reg = <0xa0000 0x0010>;
+                    reg-io-width = <4>;
+                    interrupts = <17>;
+                    status = "okay";
+                };
+
+                myip2: myip2@b0000 {
+                    compatible = "syscon", "fpga-ip-access";
+                    reg = <0xb0000 0x0010>;
+                    reg-io-width = <4>;
+                    interrupts = <18>;
+                    status = "okay";
+                };
+
+                myip3: myip3@c0000 {
+                    compatible = "syscon", "fpga-ip-access";
+                    reg = <0xc0000 0x0080>;
+                    reg-io-width = <4>;
+                    interrupts = <19>;
+                    status = "okay";
+                };
+        };
+};
